@@ -13,4 +13,5 @@ def find_or_guess_index(input_numbers: list, req_number: int):
         return mid + 1
     return mid
 
+
 print(find_or_guess_index(list(map(int, input().split())), int(input())))
