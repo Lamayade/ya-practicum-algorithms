@@ -1,15 +1,18 @@
-# Номер успешной посылки 110174364
-def count_platforms(weights: list, limit: int) -> int:
-    weights.sort()
+# Номер успешной посылки 110213198
+def count_platforms(weights: str, limit: str) -> int:
+    w = list(map(int, weights.split()))
+    w.sort()
+    l = int(limit)
     start = 0
-    end = len(weights) - 1
+    end = len(w) - 1
     platforms = 0
     while start <= end:
-        if weights[start] + weights[end] <= limit:
+        if w[start] + w[end] <= l:
             start += 1
         end -= 1
         platforms += 1
     return platforms
 
 
-print(count_platforms(list(map(int, input().split())), int(input())))
+if __name__ == '__main__':
+	print(count_platforms(input(), input()))
