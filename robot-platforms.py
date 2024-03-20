@@ -1,3 +1,4 @@
+# Номер успешной посылки 110174364
 def count_platforms(weights: list, limit: int) -> int:
     weights.sort()
     start = 0
