@@ -7,12 +7,13 @@ def cycle_counting(people: int, beats: int) -> int:
     return p_list[0]
 
 
-def recur_counting(people: int, beats: int) -> int:
-    print(people, beats)
-    if people == 1:
-        return 1
-    return recur_counting(people - 1, beats) % people
+def recur_counting(p_list: list, beats: int, index: int = 0) -> int:
+    if len(p_list) == 1:
+        return p_list[0]
+    index = (index + beats - 1) % len(p_list)
+    p_list.pop(index)
+    return recur_counting(p_list, beats, index)
 
 
 print(cycle_counting(int(input()), int(input())))
-print(recur_counting(int(input()), int(input())))
+print(recur_counting([x+1 for x in range(int(input()))], int(input())))
