@@ -1,7 +1,7 @@
 def count_fit_stones(
-        req_count: int,
+        _: int,
         req_seq: list,
-        sam_count: int,
+        __: int,
         sam_seq: list,
 ):
     sam_seq_sorted = sorted(sam_seq, reverse=True)
