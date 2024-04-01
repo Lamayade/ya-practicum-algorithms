@@ -1,13 +1,16 @@
 # Номер успешной посылки 111096851
+import string
+
+
 def decrypt_commands(crypted_str: str, inx: int = 0) -> str:
     result = ''
     multiplier = ''
     while inx < len(crypted_str):
-        if crypted_str[inx].isdigit():
+        if crypted_str[inx] in string.digits:
             multiplier += crypted_str[inx]
         elif crypted_str[inx] == '[':
-            sub_str, inx = decrypt_commands(crypted_str, inx + 1)
-            result += int(multiplier) * sub_str
+            unencrypted_str, inx = decrypt_commands(crypted_str, inx + 1)
+            result += int(multiplier) * unencrypted_str
             multiplier = ''
         elif crypted_str[inx] == ']':
             return result, inx
